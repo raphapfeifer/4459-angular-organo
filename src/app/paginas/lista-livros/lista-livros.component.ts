@@ -27,22 +27,18 @@ import { Observable } from 'rxjs';
 })
 export class ListaLivrosComponent implements OnInit {
   generosComLivros: { genero: GeneroLiterario; livros: Livro[] }[] = [];
+  livros: Livro[] = [];
 
-  generos: GeneroLiterario[] = [
-    { id: 'romance', value: 'Romance' },
-    { id: 'misterio', value: 'Mistério' },
-    { id: 'fantasia', value: 'Fantasia' },
-    { id: 'ficcao-cientifica', value: 'Ficção Científica' },
-    { id: 'tecnicos', value: 'Técnicos' }
-  ];
+  
 
   constructor(private livroService: LivroService){}
 
-  livros: Observable<Livro[]> | undefined;
 
   ngOnInit() {
-    this.organizarLivrosPorGenero();
-    this.livros = this.livroService.obterLivros();
+    this.livroService.obterLivros().subscribe((livros: Livro[]) => {
+      this.livros = livros;
+      console.log(this.livros);
+    });
   }
 
   organizarLivrosPorGenero() {
@@ -50,5 +46,4 @@ export class ListaLivrosComponent implements OnInit {
       genero,
       livros: this.livros.filter((livro) => livro.genero.id === genero.id)
     }));*/
-  }
 }
