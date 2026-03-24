@@ -186,6 +186,17 @@
         "value": "Romance"
       },
       "favorito": false
+    },
+    {
+      "id": "DiijtAi",
+      "titulo": "novo livro",
+      "autoria": "eu mesmo",
+      "favorito": false,
+      "genero": {
+        "id": "ficcao-cientifica",
+        "value": "Ficção Científica"
+      },
+      "imagem": "https://patternapothecary.shop/product/clean-code-a-handbook-of-agile-software-craftsmanship-second-edition/?utm_source=Google%20Shopping&utm_campaign=local&utm_medium=cpc&utm_term=adtribes&gad_source=1&gad_campaignid=23452133023&gbraid=0AAAABB_g0t-MqsB-tkfyBG1frtunhrFib&gclid=Cj0KCQjw7IjOBhDyARIsAFzrWQy_L8clvhN9XgfyJPJ1273EcxRMN3Z-fdowgL4FY37Q7c1ZN1RDFXIaAmxGEALw_wcB"
     }
   ]
 }
