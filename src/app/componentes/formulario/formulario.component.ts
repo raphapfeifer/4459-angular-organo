@@ -30,6 +30,7 @@ import { LivroService } from '../../services/livro.service';
 })
 export class FormularioComponent implements OnInit {
 
+  livro = input<Livro | null>(null);
   submitForm = output<Livro>();
   livroFormulario!: FormGroup;
   generos: GeneroLiterario[] = [];
