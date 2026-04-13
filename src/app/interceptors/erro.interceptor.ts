@@ -9,9 +9,19 @@ export const erroInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(req).pipe(
     catchError((erro: HttpErrorResponse) => {
-      const mensagemErro = 'Aconteceu um erro'
+      const mensagemErro = oberterMensagemDeErro(erro.status);
       mensagemErroService.mostrarMensagemDeErro(mensagemErro);
       return throwError(() => erro)
     })
   )
 };
+
+
+function oberterMensagemDeErro(status: number): string {
+  const mensagemDeErro: Record<number, string> = {
+    0: 'Erro de rede - Não foi possível se conectar ao servidor',
+    404: 'O recurso solicitado não foi encontrado',
+    500: 'Erro no servidor. Tente novamente mais tarde.'
+  }
+  return mensagemDeErro[status] || 'Ocorreu um erro inesperado'
+}
